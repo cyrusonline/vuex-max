@@ -1,6 +1,6 @@
 <template>
 <div>
-<p>myname is {{nameString}}</p> {{name}} {{myown}}
+
     <p>Counter is: {{ doubleCounter }}</p>
     <p>Number of clicks: {{stringCounter}}</p>
 </div>
@@ -10,15 +10,16 @@
 <script>
 import {mapState} from 'vuex'
 import {mapGetters} from 'vuex'
+import * as types from '../store/types';
     export default {
        computed:{
          
-           ...mapGetters([
-               'nameString',
-               'doubleCounter',
-               'stringCounter',
+           ...mapGetters({
+              
+               doubleCounter: types.DOUBLE_COUNTER,
+               stringCounter:types.CLICK_COUNTER,
 
-           ]),
+           }),
            ...mapState([
                'name'
            ]),
